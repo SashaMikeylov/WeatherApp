@@ -45,10 +45,12 @@ final class MainHeader: UIView {
                                                        text: "16",
                                                        font: UIFont.systemFont(ofSize: 35, weight: .medium), textColor: .white,
                                                        degreeSize: 8)
+    
     private lazy var minTemp = TemperatureLabel(frame: .zero,
                                                 text: "6", font: UIFont.systemFont(ofSize: 16, weight: .regular),
                                                 textColor: .white,
                                                 degreeSize: 6)
+    
     private lazy var maxTemp = TemperatureLabel(frame: .zero,
                                                 text: "18", font: UIFont.systemFont(ofSize: 16, weight: .regular),
                                                 textColor: .white,
@@ -111,7 +113,7 @@ final class MainHeader: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
+        backgroundColor = UIColor(named: "backgroundColor")
         layer.cornerRadius = 10
         layout()
     }

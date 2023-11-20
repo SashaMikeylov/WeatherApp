@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 final class CustomWeatherIcons: UIView {
     
     
@@ -66,6 +67,8 @@ final class CustomWeatherIcons: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK: - Layout
     
     private func layout() {
         addSubview(iconImage)

@@ -57,7 +57,7 @@ final class TemperatureLabel: UIView {
     }
     
     
-    //MARK: - Fun
+    //MARK: - Layout
     
     private func layout() {
         addSubview(label)

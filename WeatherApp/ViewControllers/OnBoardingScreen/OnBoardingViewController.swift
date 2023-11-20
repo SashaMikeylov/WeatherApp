@@ -20,16 +20,15 @@ final class OnBoardingViewController: UIViewController {
     
     private lazy var girlImage: UIImageView = {
         let image = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named: "onboardGirl")
+        image.clipsToBounds = true
         
         return image
     }()
     
     private lazy var titleText: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = onBoardTitle
+        label.text = Text.onBoardTitle
         label.textColor = .white
         label.numberOfLines = 3
         label.lineBreakMode = .byWordWrapping
@@ -38,10 +37,19 @@ final class OnBoardingViewController: UIViewController {
         return label
     }()
     
-    private lazy var descripText: UILabel = {
+    private lazy var descripText1: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = onBoardingDescrip
+        label.text = Text.onBoardingDescrip1
+        label.numberOfLines = 4
+        label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        label.textColor = .white
+        
+        return label
+    }()
+    
+    private lazy var descripText2: UILabel = {
+        let label = UILabel()
+        label.text = Text.onBoardingDescrip2
         label.numberOfLines = 4
         label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         label.textColor = .white
@@ -51,10 +59,9 @@ final class OnBoardingViewController: UIViewController {
     
     private lazy var useButton: UIButton = {
         let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("ИСПОЛЬЗОВАТЬ МЕСТОПОЛОЖЕНИЕ УСТРОЙСТВА", for: .normal)
         button.backgroundColor = .orange
-        button.layer.cornerRadius = 15
+        button.layer.cornerRadius = 10
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         button.addTarget(self, action: #selector(useButtonPressed), for: .touchUpInside)
         button.addButtonAnimation()
@@ -64,7 +71,6 @@ final class OnBoardingViewController: UIViewController {
     
     private lazy var addLocationButton: UIButton = {
         let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("НЕТ, Я БУДУ ДОБАВЛЯТЬ ЛОКАЦИИ", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         button.addTarget(self, action: #selector(addButtonPresed), for: .touchUpInside)
@@ -96,35 +102,39 @@ final class OnBoardingViewController: UIViewController {
     //MARK: - Layout
     
     private func layout() {
-        view.addSubview(girlImage)
-        view.addSubview(titleText)
-        view.addSubview(descripText)
-        view.addSubview(useButton)
-        view.addSubview(addLocationButton)
+        let elements = [girlImage, titleText, descripText1, descripText2, useButton, addLocationButton]
+        elements.forEach {
+            view.addSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
         
         NSLayoutConstraint.activate([
-            girlImage.heightAnchor.constraint(equalToConstant: 400),
-            girlImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 70),
-            girlImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            girlImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             
-            titleText.topAnchor.constraint(equalTo: girlImage.bottomAnchor, constant: 40),
-            titleText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            titleText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+            girlImage.heightAnchor.constraint(equalToConstant: 200),
+            girlImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+            girlImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -84),
+            girlImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 111),
             
-            descripText.topAnchor.constraint(equalTo: titleText.bottomAnchor, constant: 5),
-            descripText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            descripText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+            titleText.topAnchor.constraint(equalTo: girlImage.bottomAnchor, constant: 50),
+            titleText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            titleText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             
-            useButton.heightAnchor.constraint(equalToConstant: 50),
+            descripText1.topAnchor.constraint(equalTo: titleText.bottomAnchor, constant: 50),
+            descripText1.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            descripText1.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            
+            descripText2.topAnchor.constraint(equalTo: descripText1.bottomAnchor, constant: 10),
+            descripText2.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            descripText2.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            
+            addLocationButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -17),
+            addLocationButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -77),
+            
+            useButton.heightAnchor.constraint(equalToConstant: 40),
+            useButton.bottomAnchor.constraint(equalTo: addLocationButton.topAnchor, constant: -25),
             useButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             useButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
-            useButton.topAnchor.constraint(equalTo: descripText.bottomAnchor, constant: 25),
-            
-            addLocationButton.topAnchor.constraint(equalTo: useButton.bottomAnchor, constant: 15),
-            addLocationButton.heightAnchor.constraint(equalToConstant: 50),
-            addLocationButton.widthAnchor.constraint(equalToConstant: 300),
-            addLocationButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)
+        
         ])
     }
     

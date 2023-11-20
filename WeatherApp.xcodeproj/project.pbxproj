@@ -28,6 +28,10 @@
 		240EA0312B016D8100E93890 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240EA0302B016D8100E93890 /* CityModel.swift */; };
 		240EA0332B016DA700E93890 /* AllWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240EA0322B016DA700E93890 /* AllWeatherModel.swift */; };
 		240EA0352B01714700E93890 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240EA0342B01714700E93890 /* NetworkService.swift */; };
+		240EA0372B06338700E93890 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240EA0362B06338700E93890 /* WeatherService.swift */; };
+		240EA0392B06703600E93890 /* CustomCellsIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240EA0382B06703600E93890 /* CustomCellsIcons.swift */; };
+		240EA03D2B0A7CD600E93890 /* DailyCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240EA03C2B0A7CD600E93890 /* DailyCollectionView.swift */; };
+		240EA03F2B0A8DE700E93890 /* DailyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240EA03E2B0A8DE700E93890 /* DailyCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,6 +73,10 @@
 		240EA0302B016D8100E93890 /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
 		240EA0322B016DA700E93890 /* AllWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllWeatherModel.swift; sourceTree = "<group>"; };
 		240EA0342B01714700E93890 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		240EA0362B06338700E93890 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		240EA0382B06703600E93890 /* CustomCellsIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellsIcons.swift; sourceTree = "<group>"; };
+		240EA03C2B0A7CD600E93890 /* DailyCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCollectionView.swift; sourceTree = "<group>"; };
+		240EA03E2B0A8DE700E93890 /* DailyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +149,7 @@
 				240EA0192AF78EBD00E93890 /* CustomSegmentView.swift */,
 				240EA0252AFD546D00E93890 /* CustomLabel.swift */,
 				240EA0272AFD680E00E93890 /* CustomWeatherIcons.swift */,
+				240EA0382B06703600E93890 /* CustomCellsIcons.swift */,
 			);
 			path = HelperExtensions;
 			sourceTree = "<group>";
@@ -166,7 +175,9 @@
 			isa = PBXGroup;
 			children = (
 				240EA0232AFD42F200E93890 /* MainViewController */,
-				240EA0242AFD42FF00E93890 /* MainVIewCollection */,
+				240EA03B2B0A7C8F00E93890 /* MainElements */,
+				240EA0242AFD42FF00E93890 /* MainVIewCollections */,
+				240EA03A2B0A7C0500E93890 /* Cells */,
 			);
 			path = MainViewScreen;
 			sourceTree = "<group>";
@@ -185,6 +196,7 @@
 			children = (
 				240EA01D2AF918A200E93890 /* UserSettingsService.swift */,
 				240EA0342B01714700E93890 /* NetworkService.swift */,
+				240EA0362B06338700E93890 /* WeatherService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -197,14 +209,13 @@
 			path = MainViewController;
 			sourceTree = "<group>";
 		};
-		240EA0242AFD42FF00E93890 /* MainVIewCollection */ = {
+		240EA0242AFD42FF00E93890 /* MainVIewCollections */ = {
 			isa = PBXGroup;
 			children = (
-				240EA0212AFD3C5800E93890 /* MainHeader.swift */,
-				240EA0292B010BCF00E93890 /* MiniWeatherInfoCell.swift */,
 				240EA02B2B010C8100E93890 /* MiniWeatherInfoCollection.swift */,
+				240EA03C2B0A7CD600E93890 /* DailyCollectionView.swift */,
 			);
-			path = MainVIewCollection;
+			path = MainVIewCollections;
 			sourceTree = "<group>";
 		};
 		240EA02D2B010E1600E93890 /* Modeles */ = {
@@ -215,6 +226,23 @@
 				240EA0322B016DA700E93890 /* AllWeatherModel.swift */,
 			);
 			path = Modeles;
+			sourceTree = "<group>";
+		};
+		240EA03A2B0A7C0500E93890 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				240EA0292B010BCF00E93890 /* MiniWeatherInfoCell.swift */,
+				240EA03E2B0A8DE700E93890 /* DailyCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		240EA03B2B0A7C8F00E93890 /* MainElements */ = {
+			isa = PBXGroup;
+			children = (
+				240EA0212AFD3C5800E93890 /* MainHeader.swift */,
+			);
+			path = MainElements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,6 +316,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				240EA0372B06338700E93890 /* WeatherService.swift in Sources */,
+				240EA0392B06703600E93890 /* CustomCellsIcons.swift in Sources */,
 				240E9FE82AF1620500E93890 /* MainViewController.swift in Sources */,
 				240EA0312B016D8100E93890 /* CityModel.swift in Sources */,
 				240EA0332B016DA700E93890 /* AllWeatherModel.swift in Sources */,
@@ -298,6 +328,8 @@
 				240EA01A2AF78EBD00E93890 /* CustomSegmentView.swift in Sources */,
 				240E9FFA2AF1640D00E93890 /* OnBoardingViewController.swift in Sources */,
 				240EA02C2B010C8100E93890 /* MiniWeatherInfoCollection.swift in Sources */,
+				240EA03D2B0A7CD600E93890 /* DailyCollectionView.swift in Sources */,
+				240EA03F2B0A8DE700E93890 /* DailyCollectionViewCell.swift in Sources */,
 				240EA0262AFD546D00E93890 /* CustomLabel.swift in Sources */,
 				240EA0182AF2FBF400E93890 /* SettingsViewController.swift in Sources */,
 				240EA0222AFD3C5800E93890 /* MainHeader.swift in Sources */,
